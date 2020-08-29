@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>post</title>
+</head>
+<body>
+  <h1>post</h1>
+  <script>
+    let xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function () {
+      console.log('onreadystatechange', xhr.readyState)
+    }
+    xhr.open('POST', 'http://127.0.0.1:3001/post')
+    xhr.responseType = 'text'
+    xhr.setRequestHeader('Content-Type', 'application/json')
+    xhr.onload = function () {
+      console.log('readyState', xhr.readyState)
+      console.log('status', xhr.status)
+      console.log('statusText', xhr.statusText)
+      console.log('getAllResponseHeaders', xhr.getAllResponseHeaders())
+      console.log('response', xhr.response)
+    }
+    xhr.send(JSON.stringify({name: 'newming', age: 11}))
+  </script>
+</body>
+</html>

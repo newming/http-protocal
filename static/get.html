@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>get</h1>
+  <script>
+    let xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function () {
+      console.log('onreadystatechange', xhr.readyState)
+    }
+    xhr.open('GET', 'http://127.0.0.1:3001/get')
+    xhr.responseType = 'text'
+    xhr.setRequestHeader('age', '11')
+    xhr.onload = function () {
+      console.log('readyState', xhr.readyState)
+      console.log('status', xhr.status)
+      console.log('statusText', xhr.statusText)
+      console.log('getAllResponseHeaders', xhr.getAllResponseHeaders())
+      console.log('response', xhr.response)
+    }
+    xhr.send()
+  </script>
+</body>
+</html>
